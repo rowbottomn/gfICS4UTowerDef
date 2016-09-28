@@ -16,14 +16,15 @@ public class Explosion extends Actor
         setImage(image.getCurrentImage());
         size = (int)(a.getImage().getWidth()*0.9);
         getImage().scale(size, size);
-        if (size > 150){
+        if (size > 100){
             sound = new GreenfootSound("explosion_large.mp3");
         }
-        else if (size > 75){
+        else if (size > 40){
             sound = new GreenfootSound("explosion_medium.mp3");
         }
         else {
-            sound = new GreenfootSound("explosion_small.mp3");
+              sound = new GreenfootSound("little_pop.mp3");
+//            sound = new GreenfootSound("explosion_small.mp3");
         }
         sound.play();
       

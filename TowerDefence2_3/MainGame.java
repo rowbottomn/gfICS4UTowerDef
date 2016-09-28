@@ -21,7 +21,7 @@ public class MainGame extends World
     MouseInfo mouse;
     int mX;
     int mY;
-     ArrayList <Waypoint> enemyPath;
+
      int frameCount;
     AimingTower startTower;
     /**

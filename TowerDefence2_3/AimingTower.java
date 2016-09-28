@@ -30,7 +30,7 @@ public class AimingTower extends Tower
             GreenfootImage temp = ranger.getImage();
             temp.scale((int)(range*2),(int)(range*2));
             temp.setTransparency(30);
-            ranger.setImage(temp);
+     
             getWorld().addObject(ranger,this.getX(), this.getY());
         }
         //update position

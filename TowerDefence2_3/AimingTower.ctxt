@@ -1,13 +1,15 @@
 #BlueJ class context
-comment0.params=
-comment0.target=AimingTower()
-comment0.text=\r\n\ Act\ -\ do\ whatever\ the\ AimingTower\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment0.target=AimingTower
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ AimingTower\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=
-comment1.target=void\ act()
-comment2.params=angle
-comment2.target=void\ fire(int)
-comment3.params=
-comment3.target=void\ aim()
+comment1.target=AimingTower()
+comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ AimingTower\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment2.params=
+comment2.target=void\ act()
+comment3.params=angle
+comment3.target=void\ fire(int)
 comment4.params=
-comment4.target=void\ improvedAim()
-numComments=5
+comment4.target=void\ aim()
+comment5.params=
+comment5.target=void\ improvedAim()
+numComments=6

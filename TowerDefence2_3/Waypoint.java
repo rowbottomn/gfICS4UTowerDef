@@ -13,7 +13,7 @@ public class Waypoint extends Actor
     public Waypoint(int x, int y){
         GreenfootImage img = getImage();
         img.scale(size,size);
-        setImage(img);
+       // setImage(img);
         this.x = x;
         this.y = y;
     }  
