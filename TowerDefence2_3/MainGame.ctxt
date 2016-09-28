@@ -1,11 +1,9 @@
 #BlueJ class context
-comment0.target=MainGame
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ MainGame\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.params=
+comment0.target=MainGame()
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ MainGame.\r\n\ \r\n
 comment1.params=
-comment1.target=MainGame()
-comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ MainGame.\r\n\ \r\n
-comment2.params=
-comment2.target=void\ act()
-comment3.params=level
-comment3.target=void\ setPath(int)
-numComments=4
+comment1.target=void\ act()
+comment2.params=level
+comment2.target=void\ setPath(int)
+numComments=3

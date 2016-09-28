@@ -20,6 +20,7 @@ public class Enemy extends AbstEnemy
          angle = 0;
          speed = 3;
          damage = 10;
+         this.healthbar = new HealthBar(this,health);
     }
 
       public Enemy(ArrayList <Waypoint> p){
@@ -29,7 +30,8 @@ public class Enemy extends AbstEnemy
          damage = 10;
          path = p;
          current = path.get(step);
-
+         this.healthbar = new HealthBar(this, health);
+         
       }
       
     /**
@@ -39,11 +41,17 @@ public class Enemy extends AbstEnemy
     public void act() 
     {
         super.act();//just makes sure to get a reference to the world
+        if (healthbar.getWorld() == null){
+            getWorld().addObject(healthbar, 0,0);
+        }
+        
         //update position
         move();
         //check if hit
         
             takeDamage();
+            //healthbar.update(getX(), getY(), health);
+            healthbar.update();
             //check if dead
                 //remove    
            
@@ -84,12 +92,15 @@ public class Enemy extends AbstEnemy
         }
         //check to see if enemy is dead OR made it to the end
         if (health <=0){
+            health = 0;
+            world.removeObject(healthbar);
             world.addObject(new Explosion(this),this.getX(),this.getY());
             world.removeObject(this);            
         }
-        if (step >= path.size()){
-            world.removeObject(this);
-        }
+        //handled by the Home now
+        //if (step >= path.size()){
+        //    world.removeObject(this);
+        //}
         
     }
     

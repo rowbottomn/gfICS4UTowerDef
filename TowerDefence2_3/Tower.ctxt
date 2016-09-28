@@ -1,16 +1,14 @@
 #BlueJ class context
-comment0.target=Tower
-comment0.text=\r\n\ Basic\ tower\ to\ use\ a\ superclass\r\n\ \r\n\ @author\ Rowbottom\ \r\n\ @version\ 1_0\ Basic\ \r\n
+comment0.params=
+comment0.target=Tower()
 comment1.params=
-comment1.target=Tower()
+comment1.target=void\ act()
 comment2.params=
-comment2.target=void\ act()
+comment2.target=boolean\ canSpawn()
 comment3.params=
-comment3.target=boolean\ canSpawn()
-comment4.params=
-comment4.target=int\ aim()
-comment5.params=angle
-comment5.target=void\ fire(int)
-comment6.params=x\ y
-comment6.target=void\ fire(int,\ int)
-numComments=7
+comment3.target=int\ aim()
+comment4.params=angle
+comment4.target=void\ fire(int)
+comment5.params=x\ y
+comment5.target=void\ fire(int,\ int)
+numComments=6

@@ -10,6 +10,7 @@ public abstract class AbstEnemy extends Actor
 {
       //enemy has
       MainGame world;//world reference
+      HealthBar healthbar;
       protected int x, y, angle;//location
       protected ArrayList <Bullet> bullets;
       //health
