@@ -1,8 +1,0 @@
-#BlueJ class context
-comment0.params=
-comment0.target=BlastTower()
-comment1.params=angle
-comment1.target=void\ fire(int)
-comment2.params=
-comment2.target=BlastTower\ clone()
-numComments=3
