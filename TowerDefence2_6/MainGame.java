@@ -15,7 +15,7 @@ public class MainGame extends World
     TitleScreen title;
     ArrayList <Waypoint> path;
     int level = 1;
-    int moneyAmount = 1100;
+    int moneyAmount = 110;
     int hiScore = 0;
     int score = 0;
     int pathSize = 60;
@@ -33,7 +33,11 @@ public class MainGame extends World
     MouseInfo mouse;    
     int mX;
     int mY;
- 
+    boolean ebool = false;
+    boolean lbool = false;
+    boolean obool = false;
+    boolean nbool = false;
+    
     int frameCount;
     //Testing of classes
     AimingTower startTower;
@@ -125,6 +129,18 @@ public class MainGame extends World
 
     public void act(){
         int waveDelay = 6;
+        if (Greenfoot.isKeyDown("e")){ebool = true;}
+        if (Greenfoot.isKeyDown("l")){lbool = true;}
+        if (Greenfoot.isKeyDown("o")){obool = true;}
+        if (Greenfoot.isKeyDown("n")){nbool = true;}
+        if (ebool&&lbool&&obool&&nbool&&spawnTimer.millisElapsed() > 600){
+            moneyAmount+= 1000;
+            spawnTimer.mark();
+            ebool= false;
+            lbool = false;
+            obool = false;
+            nbool = false;
+    }
         if (waveTimer.millisElapsed() < waveDelay*1000){
             showText("Get Ready" + (waveDelay-waveTimer.millisElapsed()/1000), 500,400);
         }
