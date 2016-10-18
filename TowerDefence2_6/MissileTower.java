@@ -10,18 +10,19 @@ import java.awt.*;
 
 public class MissileTower extends AimingTower
 {
+    double bulletSpeed;
     int numBullets;//how many bullets are fired at once
     public MissileTower(){
         super();
         range = 300;
-        bulletSpeed=3;
+        this.bulletSpeed=3.5;
         
-        fireRate = 2600;
+        fireRate = 2400;
 
-        cost = 350;
+        cost = 320;
         numBullets = 1;
-        damage*=2.7/numBullets;
-        color = new Color(200,0,0);
+        damage*=4;
+        color = new Color(150,0,150);
     }
     
     
@@ -58,9 +59,7 @@ public class MissileTower extends AimingTower
     
     
     protected void fire(){
-        for (int i = 0; i < numBullets; i ++){
-            getWorld().addObject(new MissileBullet((int)(Math.random()*360), damage, (int)range, bulletSpeed, target), getX(), getY());
-        }
+            getWorld().addObject(new MissileBullet((int)(Math.random()*360), damage, (int)(2*range), this.bulletSpeed, target), getX(), getY());
        fireTimer.mark();//resets timer
     }
     
@@ -75,10 +74,10 @@ public class MissileTower extends AimingTower
         range *= 1.1;
         cost *= 2.1;
         bulletSpeed*=1.2;
-        damage*=numBullets;
+        fireRate *= 0.7;
         numBullets += 1;
         spread*=1.05;
-        damage*=1.1/numBullets;
+        damage*=1.1;
         tempWorld.removeObject(ranger);
         ranger= null;
     }    

@@ -9,9 +9,10 @@ import greenfoot.*;
 public class MissileBullet extends Bullet
 {
     Enemy enemy;
-    
-    public MissileBullet(int a, int d, int r, int s, Enemy e){
-        super(a, d, r, s);
+    double bulletSpeed;
+    public MissileBullet(int a, int d, int r, double s, Enemy e){
+        super(a, d, r, (int)s);
+        this.bulletSpeed = s;
         enemy = e;
     }
     /**
@@ -20,13 +21,14 @@ public class MissileBullet extends Bullet
      */
     public void act() 
     {
+        speed = (int)this.bulletSpeed;
         // Add your action code here.
         super.act();
         if (enemy!=null&&enemy.getWorld()!=null){
             int oldAngle = getRotation();
         turnTowards(enemy.getX(), enemy.getY());
-        setRotation(oldAngle+(getRotation()-oldAngle)/4);
-        speed*=1.3;
+        setRotation(oldAngle+(int)((getRotation()-oldAngle)/4));
+        bulletSpeed*=1.1;
     }
     else{
         getWorld().addObject(new Explosion(this), getX(),getY());
