@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=
+comment0.target=MissileTower()
+comment1.params=
+comment1.target=void\ act()
+comment2.params=
+comment2.target=void\ fire()
+comment3.params=
+comment3.target=MissileTower\ clone()
+comment4.params=
+comment4.target=void\ upgrade()
+comment5.params=
+comment5.target=void\ setImage()
+numComments=6

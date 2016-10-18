@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.params=a\ b\ c\ d
+comment0.target=FlameBullet(int,\ int,\ int,\ int)
+comment0.text=\r\n\ Act\ -\ do\ whatever\ the\ FlameBullet\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment1.params=
+comment1.target=void\ act()
+numComments=2

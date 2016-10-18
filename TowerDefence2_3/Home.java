@@ -13,12 +13,13 @@ public class Home extends Actor
     
     Enemy enemy;
     MainGame game;
-    
+//    HomeHealthBar healthbar;
     
     public Home(int health){
         this.health = health;
         GreenfootImage temp = getImage();
         temp.scale(temp.getWidth(),(int)(temp.getHeight()*1.2));
+  //      healthbar = new HomeHealthBar(this,health);
     }
     
     public void act(){

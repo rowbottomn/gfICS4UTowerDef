@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Tower()
+comment1.params=
+comment1.target=void\ act()
+comment2.params=
+comment2.target=int\ aim()
+comment3.params=angle
+comment3.target=void\ fire(int)
+comment4.params=x\ y
+comment4.target=void\ fire(int,\ int)
+comment5.params=
+comment5.target=void\ upgrade()
+comment6.params=
+comment6.target=void\ remove()
+numComments=7

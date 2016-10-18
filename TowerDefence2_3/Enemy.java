@@ -60,17 +60,17 @@ public class Enemy extends AbstEnemy
 
     
     public void nextWaypoint(){
-       if (step < path.size()){
-           current = path.get(step);
-           turnTowards(current.x, current.y);
-        }
+
     }
     //enemy moves
     protected void move(){
         move(speed);
         if ((Math.abs(getX()- current.x) <speed)&&(Math.abs(getY()- current.y) <speed)){
             step ++;
-            nextWaypoint();
+            if (step < path.size()){
+                current = path.get(step);
+                turnTowards(current.x, current.y);
+            }
         }
     }
         

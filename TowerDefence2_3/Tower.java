@@ -10,7 +10,7 @@ public class Tower extends Actor
 {
     /**
      * Tower has
-     * location (int, int)
+     * location (int, int)<<==already inherited from the Actor super class
      * level (int)
      * range (double)
      * rate of fire (double)
@@ -33,8 +33,9 @@ public class Tower extends Actor
      *      raze()
      * 
      */
-
+//timer for cool down
     protected SimpleTimer fireTimer;
+    
     protected int x = 0, y = 0;
     protected int level;
     protected double range;
@@ -42,7 +43,8 @@ public class Tower extends Actor
     protected int bulletSpeed;
     protected int cost;
     protected int damage;
-
+    
+    
     //constructors here
     public Tower(){
         level = 1;
@@ -52,6 +54,20 @@ public class Tower extends Actor
         damage = 15;
         fireTimer = new SimpleTimer();
         fireTimer.mark();
+        
+    }
+    
+    private void drawTower(){
+        GreenfootImage real = getImage();       
+        GreenfootImage temp = new GreenfootImage(getImage(););
+        
+        temp.setColor( new Color(60,60
+        //clear the old image
+        temp.clear();
+        
+        //draw the base
+        
+        //
     }
     
     public void act() 
@@ -67,6 +83,9 @@ public class Tower extends Actor
 //           System.out.println("fire");
        }
     }    
+    
+    
+    
     
     public boolean canSpawn(){
         return !(isTouching(Waypoint.class) || isTouching(Tower.class));

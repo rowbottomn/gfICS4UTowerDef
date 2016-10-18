@@ -19,7 +19,7 @@ public class Bullet extends Actor
     int speed; //coming from the tower via constructor
     int range;//coming from the tower via constructor
     int distTravelled;//
-  
+    
     public Bullet(int a, int d, int r, int s){
         angle = a;
         damage = d;
@@ -37,6 +37,7 @@ public class Bullet extends Actor
         distTravelled = 0;
         turn(angle);
     }
+    
     public Bullet(int a){
         angle = a;
         damage = 10;
