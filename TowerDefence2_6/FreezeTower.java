@@ -13,7 +13,7 @@ public class FreezeTower extends AimingTower
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     boolean active;
-    
+    GreenfootSound sound = new GreenfootSound("freeze_sound.wav");
     public FreezeTower(){
         super();
         range = 160;
@@ -34,10 +34,11 @@ public class FreezeTower extends AimingTower
         if (active){
             if (ranger == null){
                 ranger = new FreezeAttack((int)range, color);
+                sound.play();
                 ranger.setImage();
                 getWorld().addObject(ranger,this.getX(), this.getY()); 
             }
-                double transparency = (double)(fireTimer.millisElapsed()/fireRate-1);
+                double transparency = (double)(20+80*(fireTimer.millisElapsed()/fireRate));
                 ranger.setImage(transparency);            
         }
         else{

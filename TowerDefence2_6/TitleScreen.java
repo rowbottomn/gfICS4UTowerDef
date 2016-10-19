@@ -13,13 +13,16 @@ public class TitleScreen extends World
      * Constructor for objects of class TitleScreen.
      * 
      */
+    
     MainGame main;
+    GreenfootSound soundTrack = new GreenfootSound("\\sounds\\music.mp3");
     GreenfootImage endScreen = new GreenfootImage("EndScreen.png");
     public TitleScreen(MainGame m)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1000, 600, 1); 
-        //setBackground(new GreenfootImage("TitleScreen.png")) ;
+        soundTrack.play();
+        setBackground(new GreenfootImage("TitleScreen.png")) ;
         main = m;
     }
     
@@ -32,8 +35,8 @@ public class TitleScreen extends World
         showText("Score: " + main.hiScore, 500,350);
         showText("Score: " + main.score, 500,400);
         showText("Money: $" + main.moneyAmount, 500,500);
-        if (Greenfoot.mouseClicked(null)){
-            
+        if (Greenfoot.mouseClicked(this)){
+            soundTrack.stop();
             if (main.player.health <= 0 ){
                 main = new MainGame( main.hiScore);
             }

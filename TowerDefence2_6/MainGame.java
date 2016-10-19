@@ -119,8 +119,8 @@ public class MainGame extends World
         buttons = new ArrayList <UIBaseTower>();
         for (int i = 0; i < towers.size(); i++){
             buttons.add(new UIBaseTower(towers.get(i)));
-            addObject(buttons.get(i), 950, i*100+100);
-            showText("$"+towers.get(i).cost, 950,i*100+150);
+            addObject(buttons.get(i), 940, i*100+100);
+            showText("$"+towers.get(i).cost, 940,i*100+150);
         }
         buttons.get(0).active = true;
         cursor = new UICursor(this,towers.get(0).img.getWidth());
