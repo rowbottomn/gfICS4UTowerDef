@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Fri Oct 21 08:35:27 EDT 2016
+#Fri Oct 21 09:21:27 EDT 2016
 target24.type=ClassTarget
 target16.name=Home
 target13.editor.width=1022
@@ -680,7 +680,7 @@ dependency83.to=FlameTower
 target22.type=ClassTarget
 target14.name=UIButton
 target21.naviview.expanded=true
-class.AbstEnemy.image=skull.png
+class.AbstEnemy.image=bullet.png
 target31.naviview.expanded=true
 dependency29.from=MainGame
 dependency77.to=Explosion

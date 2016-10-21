@@ -84,7 +84,7 @@ public class MissileTower extends AimingTower
     }    
 
     protected void setImage(){
-        this.img = new GreenfootImage("\\images\\space_base.png");
+        this.img = new GreenfootImage("space_base.png");
 
         //img.setColor(new Color(60,60,60));
         //img.fillOval(0,0,turretSize,turretSize);

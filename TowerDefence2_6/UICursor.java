@@ -17,6 +17,8 @@ public class UICursor extends UIMenuBackground
     greenfoot.MouseInfo mouse;
     GreenfootImage img;
     Money money;
+    GreenfootSound pickup = new GreenfootSound("coins.wav");
+
     int size;
     boolean canSpawn;
     Tower tower;
@@ -30,6 +32,7 @@ public class UICursor extends UIMenuBackground
         img = getImage();
         setImage(new Color(200));
         img.scale(size,size);
+        pickup.setVolume(75);
     }
 
     public void update(Tower t, greenfoot.MouseInfo m, SimpleTimer tim){
@@ -112,6 +115,7 @@ public class UICursor extends UIMenuBackground
     public void pickUpMoney(){
         money = (Money)getOneIntersectingObject(Money.class);
         if (money ==null){return;}
+        pickup.play();
         tempWorld.moneyAmount += money.value;
         tempWorld.score += money.value;
         tempWorld.removeObject(money);

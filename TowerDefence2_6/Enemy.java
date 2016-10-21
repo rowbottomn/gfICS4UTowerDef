@@ -53,20 +53,20 @@ public class Enemy extends AbstEnemy
     private void setType(){
         if (health<=80){
             health = 80;
-            gif  = new GifImage("\\images\\fast_enemy.gif"); 
+            gif  = new GifImage("fast_enemy.gif"); 
             setImage(gif.getCurrentImage());
             gifActive = true;        }
         else if (health <=160){
-            gif  = new GifImage("\\images\\low_health_enemy.gif"); 
+            gif  = new GifImage("low_health_enemy.gif"); 
             setImage(gif.getCurrentImage());
             gifActive = true;
 
         }
         else if (health <= 360){
-            setImage("\\images\\ladybug1.png");                        
+            setImage("ladybug1.png");                        
         }
         else {
-            gif  = new GifImage("\\images\\main_boss.gif");   
+            gif  = new GifImage("main_boss.gif");   
             setImage(gif.getCurrentImage());
             gifActive = true;
         };

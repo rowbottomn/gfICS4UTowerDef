@@ -27,7 +27,7 @@ public class BlastTower extends AimingTower
         numBullets = 3;
         damage*=1.7/numBullets;
         color = new Color(150,150,255);
-        sound = new GreenfootSound("\\sounds\\turret_blast1.wav");
+        sound = new GreenfootSound("turret_blast1.wav");
         sound.setVolume(65);
 
     }

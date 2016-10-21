@@ -8,6 +8,7 @@ import greenfoot.*;
  */
 
 
+//sound is handled in the cursor
 public class Money extends Explosion
 {
     int value;

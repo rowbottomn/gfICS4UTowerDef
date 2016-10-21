@@ -17,7 +17,7 @@ public class TitleScreen extends World
      */
 
     MainGame main;
-    GreenfootSound soundTrack = new GreenfootSound("\\sounds\\music.mp3");
+    GreenfootSound soundTrack = new GreenfootSound("music.mp3");
     GreenfootImage bg;//background;
     SimpleTimer timer = new SimpleTimer();
     ArrayList <Label> titles;

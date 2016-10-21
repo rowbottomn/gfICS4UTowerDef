@@ -67,7 +67,7 @@ public class FreezeTower extends AimingTower
     }
     
     protected void setImage(){
-               this.img = new GreenfootImage("\\images\\button-blue.png");
+               this.img = new GreenfootImage("button-blue.png");
             
             //img.setColor(new Color(60,60,60));
             //img.fillOval(0,0,turretSize,turretSize);

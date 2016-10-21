@@ -22,16 +22,16 @@ public class Explosion extends Actor
         getImage().scale(size, size);
         if (size > 60){
             //home explosion
-            sound = new GreenfootSound("\\sounds\\explosion_large.mp3");
+            sound = new GreenfootSound("explosion_large.mp3");
         }
         else if (size > 40){
-            sound = new GreenfootSound("\\sounds\\explosion_medium.mp3");
+            sound = new GreenfootSound("explosion_medium.mp3");
         }
         else if (size > 10){
-            sound = new GreenfootSound("\\sounds\\explosion_small.mp3");
+            sound = new GreenfootSound("explosion_small.mp3");
         }
         else {
-            sound = new GreenfootSound("\\sounds\\little_pop.mp3");
+            sound = new GreenfootSound("little_pop.mp3");
         }
         int volume = 30+size/2;
         if (volume>90){

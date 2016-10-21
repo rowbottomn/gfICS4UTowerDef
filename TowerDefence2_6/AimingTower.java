@@ -75,7 +75,7 @@ public class AimingTower extends Tower
 
     protected void setImage(){
         if (img == null){
-            img = new GreenfootImage("\\images\\turret_green.png");}
+            img = new GreenfootImage("turret_green.png");}
         //img.setColor(new Color(60,60,60));
         //img.fillOval(0,0,turretSize,turretSize);
         img.setColor(this.color);

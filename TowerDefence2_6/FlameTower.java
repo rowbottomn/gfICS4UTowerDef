@@ -25,7 +25,7 @@ public class FlameTower extends BlastTower
         numBullets = 1;
         cost = 150;
         bulletWidth = 1.1;
-        sound = new GreenfootSound("\\sounds\\flame_thrower.wav");
+        sound = new GreenfootSound("flame_thrower.wav");
         sound.setVolume(70);
         color = new Color(255,170,0);
     }
