@@ -48,7 +48,10 @@ public class Range extends Actor
        temp.clear();
        temp.setColor(color);
        temp.fillOval(0,0,size,size);
-       temp.setTransparency((int)(80+transparency));      
+       if (transparency > 100){
+           transparency = 100;
+        }
+       temp.setTransparency((int)(transparency));      
        
     }    
         

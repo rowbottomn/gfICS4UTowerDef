@@ -8,13 +8,12 @@ import greenfoot.*;
  */
 public class MissileBullet extends Bullet
 {
-    GreenfootSound sound;
+
     Enemy enemy;
     double bulletSpeed;
     public MissileBullet(int a, int d, int r, double s, Enemy e){
         super(a, d, r, (int)s);
-        sound = new GreenfootSound("missile_launcher.wav");
-        this.sound.play();
+
         this.bulletSpeed = s;
         enemy = e;
     }
@@ -36,6 +35,7 @@ public class MissileBullet extends Bullet
         }
         else{
             if (getWorld()!=null){
+           
                 getWorld().addObject(new Explosion(this), getX(),getY());
                 getWorld().removeObject(this);
             }

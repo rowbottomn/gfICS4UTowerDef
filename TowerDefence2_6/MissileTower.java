@@ -7,7 +7,6 @@ import java.awt.*;
  * @version (a version number or a date)
  */
 
-
 public class MissileTower extends AimingTower
 {
     double bulletSpeed;
@@ -16,20 +15,21 @@ public class MissileTower extends AimingTower
         super();
         range = 300;
         this.bulletSpeed=3.5;
-        
+
         fireRate = 2400;
 
         cost = 320;
         numBullets = 1;
         damage*=4;
         color = new Color(150,0,150);
+        sound = new GreenfootSound("missile_launcher.wav");
+        sound.setVolume(70);
     }
-    
-    
-        public void act() 
+
+    public void act() 
     {
         if (tempWorld ==null){
-            tempWorld = (MainGame)getWorld();
+            tempWorld = getWorld();
 
         }
         if (img == null){
@@ -45,7 +45,6 @@ public class MissileTower extends AimingTower
             target = ranger.target();
             if (target != null){
 
-                
                 //firingAngle = this.getRotation();
                 fire();
                 //target = null;
@@ -56,20 +55,22 @@ public class MissileTower extends AimingTower
             upgrade();
         }
     }    
-    
-    
+
     protected void fire(){
-            getWorld().addObject(new MissileBullet((int)(Math.random()*360), damage, (int)(2*range), this.bulletSpeed, target), getX(), getY());
-       fireTimer.mark();//resets timer
+         if (sound.isPlaying()){
+            sound.stop();
+        }
+        this.sound.play();
+        getWorld().addObject(new MissileBullet((int)(Math.random()*360), damage, (int)(2*range), this.bulletSpeed, target), getX(), getY());
+        fireTimer.mark();//resets timer
     }
-    
+
     protected MissileTower clone(){
-       MissileTower clone = new MissileTower(); 
-       
-       return clone; 
+        MissileTower clone = new MissileTower(); 
+
+        return clone; 
     }
-    
-    
+
     protected void upgrade(){
         range *= 1.1;
         cost *= 2.1;
@@ -81,17 +82,17 @@ public class MissileTower extends AimingTower
         tempWorld.removeObject(ranger);
         ranger= null;
     }    
-    
+
     protected void setImage(){
-               this.img = new GreenfootImage("\\images\\space_base.png");
-            
-            //img.setColor(new Color(60,60,60));
-            //img.fillOval(0,0,turretSize,turretSize);
-            this.img.setColor(this.color);
-            
-          //  img.fillOval(-2,-1,turretSize,turretSize);
-            
-            this.img.scale(50,50);
-            setImage(this.img);        
+        this.img = new GreenfootImage("\\images\\space_base.png");
+
+        //img.setColor(new Color(60,60,60));
+        //img.fillOval(0,0,turretSize,turretSize);
+        this.img.setColor(this.color);
+
+        //  img.fillOval(-2,-1,turretSize,turretSize);
+
+        this.img.scale(50,50);
+        setImage(this.img);        
     }
 }

@@ -15,20 +15,42 @@ public class Enemy extends AbstEnemy
     int step = 0;
     GifImage gif;
     boolean gifActive = false;
-
+    boolean resetBoolean;
+    int originalHealth;
     //not used
-    public Enemy(){
-        health = 20;
-        angle = 0;
-        speed = 3;
+    public Enemy(int h){
+        originalHealth = h;
+        this.health = h;
+        setType();
+        path = new ArrayList<Waypoint>();
+         path.add(new Waypoint(1050, 420));
+        path.add(new Waypoint(-100,420));
+        current = path.get(step);
+        angle = 180;
+
+        speed = 2+(int)(10*0.7-health/100);
         damage = 10;
         value = 2+(health+damage)*speed/4;
-        this.healthbar = new HealthBar(this,health);
+        resetBoolean = true;//for titleScreen
+        // this.healthbar = new HealthBar(this,health);
     }
 
     public Enemy(ArrayList <Waypoint> p, int level){
-        health = 80+(int)(Math.random()*level-level/2)*30;
+        health = 80+(int)(Math.random()*level-level/2)*35;
         //health = 100+level/4*20;
+        setType();
+        angle = 0;
+        speed = 2+(int)(level*0.4-health/100);
+        if (speed<1){speed = 1;};
+        damage = 8+(int)(level*0.2+health/150);
+        path = p;
+        value = 4+(health/40)*speed/3;
+
+        current = path.get(step);
+        resetBoolean = false;//for title screen
+    }
+
+    private void setType(){
         if (health<=80){
             health = 80;
             gif  = new GifImage("\\images\\fast_enemy.gif"); 
@@ -38,24 +60,16 @@ public class Enemy extends AbstEnemy
             gif  = new GifImage("\\images\\low_health_enemy.gif"); 
             setImage(gif.getCurrentImage());
             gifActive = true;
-            
+
         }
-        else if (health <= 340){
+        else if (health <= 360){
             setImage("\\images\\ladybug1.png");                        
         }
         else {
             gif  = new GifImage("\\images\\main_boss.gif");   
-                       setImage(gif.getCurrentImage());
+            setImage(gif.getCurrentImage());
             gifActive = true;
         };
-        angle = 0;
-        speed = 2+(int)(level*0.3-health/100);
-        if (speed<1){speed = 1;};
-        damage = 8+(int)(level*0.2+health/150);
-        path = p;
-        value = 4+(health/40)*speed/3;
-
-        current = path.get(step);
 
     }
 
@@ -66,15 +80,16 @@ public class Enemy extends AbstEnemy
     public void act() 
     {
         super.act();//just makes sure to get a reference to the world
+
         if (healthbar == null){
             healthbar = new HealthBar(this, health);
-            getWorld().addObject(healthbar, 0,0);
+            world.addObject(healthbar, 0,0);
         }
 
         //update position
         move();
         //check if hit
-
+        if (getWorld() == null){return;}
         //takeDamage();
         betterTakeDamage();
         //healthbar.update(getX(), getY(), health);
@@ -86,7 +101,15 @@ public class Enemy extends AbstEnemy
 
     //enemy moves
     protected void move(){
+        if (resetBoolean){
+            setRotation(angle);
+            if (getX() <= 100){
+                reset();
+                return;
+            }
+        }
         move((int)(Math.round(speed*slowDown())));
+
         if ((Math.abs(getX()- current.x) <2*speed)&&(Math.abs(getY()- current.y) <2*speed)){
             step ++;
             if (step < path.size()){
@@ -97,6 +120,7 @@ public class Enemy extends AbstEnemy
         if (gifActive){
             setImage(gif.getCurrentImage());
         }
+
     }
 
     protected double slowDown(){
@@ -124,13 +148,22 @@ public class Enemy extends AbstEnemy
             //            System.out.println("HIT! "+health+" hitpoints remaining.");
         }
         //check to see if enemy is dead OR made it to the end
-        if (health <=0){
-            health = 0;
-            world.removeObject(healthbar);
-            world.addObject(new Explosion(this),this.getX(),this.getY());
-            world.addObject(new Money(value,50), this.getX(),this.getY());
-            world.score+= value;
-            world.removeObject(this);            
+        if (!resetBoolean){
+            if (health <=0){
+                health = 0;
+                world.removeObject(healthbar);
+                world.addObject(new Explosion(this),this.getX(),this.getY());
+                world.addObject(new Money(value,50), this.getX(),this.getY());
+                //  world.score+= value;
+                world.removeObject(this);            
+            }
+        }
+        else{
+            if ((health<=0)||(getX() <= -50)){
+                world.addObject(new Enemy (originalHealth), 1050, getY());
+                world.removeObject(this);
+            }
+
         }
         //handled by the Home now
         //if (step >= path.size()){
@@ -140,19 +173,38 @@ public class Enemy extends AbstEnemy
     }
 
     protected void betterTakeDamage(){
+        
         //testing removing one at a time
         Bullet b = (Bullet)getOneIntersectingObject(Bullet.class);
         if (b!= null){
             health -= b.damage;
             world.removeObject(b);
-            if (health <= 0){
-                health = 0;
-                world.score+=value;
-                world.addObject(new Explosion(this),this.getX(),this.getY());
-                world.addObject(new Money(value,30), this.getX(),this.getY());
-                world.removeObject(healthbar);
-                world.removeObject(this);
+            if (!resetBoolean){
+                if (health <= 0){
+                    health = 0;
+                    //  world.score+=value;
+                    world.addObject(new Explosion(this),this.getX(),this.getY());
+                    world.addObject(new Money(value,30), this.getX(),this.getY());
+                    world.removeObject(healthbar);
+                    world.removeObject(this);
+                }
+            }
+            else{
+                if ((health<=0)){
+                    reset();
+                }
             }
         }
     }
+    
+    private void reset(){
+                    world.addObject(new Enemy (originalHealth), 1050, getY());
+                    world.addObject(new Explosion(this),this.getX(),this.getY());
+ 
+                    world.removeObject(healthbar);
+                    
+                    world.removeObject(this);
+        
+    }
+    
 }

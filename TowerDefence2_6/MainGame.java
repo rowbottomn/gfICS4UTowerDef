@@ -20,7 +20,7 @@ public class MainGame extends World
     int score = 0;
     int pathSize = 60;
     int health = 100;
-    
+
     Home player = new Home(health);
     int numEnemies = 10;
     int enemyCount = 0;
@@ -33,11 +33,18 @@ public class MainGame extends World
     MouseInfo mouse;    
     int mX;
     int mY;
+    //elon cheat
     boolean ebool = false;
     boolean lbool = false;
     boolean obool = false;
     boolean nbool = false;
-    
+    //level cheat
+    boolean hbool = false;
+    boolean abool = false;
+    boolean rbool = false;
+    boolean dbool = false;
+
+    int activeIndex = 0;
     int frameCount;
     //Testing of classes
     AimingTower startTower;
@@ -56,7 +63,7 @@ public class MainGame extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1000, 600, 1, false); 
         title = new TitleScreen(this);
-        
+
         //startTower = new AimingTower();
         //addObject(startTower, 120,90);
         //frameCount = 0;
@@ -82,16 +89,16 @@ public class MainGame extends World
         setupGameScreen();
         setupUI();
         Greenfoot.setWorld(title);
+        Greenfoot.start();
 
     }
-    
+
     public MainGame(int hi_score)
     {    
         this();
         hiScore = hi_score;
 
     }
-
 
     private void setupGameScreen(){
         //set the path
@@ -109,7 +116,7 @@ public class MainGame extends World
     private void setupUI(){
         //setup the side interface menu
         addObject(menuBackground, 945,300);
-     
+
         towers = new ArrayList <AimingTower> (); //used to get images for buttons
         towers.add(new AimingTower());
         towers.add(new BlastTower());
@@ -129,6 +136,7 @@ public class MainGame extends World
 
     public void act(){
         int waveDelay = 6;
+        if (Greenfoot.isKeyDown("q")){health = 0;}
         if (Greenfoot.isKeyDown("e")){ebool = true;}
         if (Greenfoot.isKeyDown("l")){lbool = true;}
         if (Greenfoot.isKeyDown("o")){obool = true;}
@@ -140,26 +148,40 @@ public class MainGame extends World
             lbool = false;
             obool = false;
             nbool = false;
-    }
+        }
+        if (Greenfoot.isKeyDown("h")){hbool = true;}
+        if (Greenfoot.isKeyDown("a")){abool = true;}
+        if (Greenfoot.isKeyDown("r")){rbool = true;}
+        if (Greenfoot.isKeyDown("d")){dbool = true;}
+        
+        if (hbool&&abool&&rbool&&dbool&&spawnTimer.millisElapsed() > 600){
+            level += 5;
+            spawnTimer.mark();
+            hbool= false;
+            abool = false;
+            rbool = false;
+            dbool = false;
+        }
+        
         if (waveTimer.millisElapsed() < waveDelay*1000){
-            showText("Get Ready" + (waveDelay-waveTimer.millisElapsed()/1000), 500,400);
+            showText("Get Ready " + (waveDelay-waveTimer.millisElapsed()/1000), 500,400);
         }
         else{
-                        showText("", 500,400);
-        if (enemyCount < numEnemies && spawnTimer.millisElapsed() > 3000/(1+0.1*level)){
-            addObject(new Enemy(path, level), path.get(0).x -pathSize,path.get(0).y); 
-            enemyCount++;
-            spawnTimer.mark();
-        }
-        else if (enemyCount == numEnemies && spawnTimer.millisElapsed() > 5000){
-            level ++;
-            levelLabel.setValue("Level "+level);
-            enemyCount = 0;
-            numEnemies += 2;
-            waveTimer.mark();
+            showText("", 500,400);
+            if (enemyCount < numEnemies && spawnTimer.millisElapsed() > 3000/(1+0.1*level)){
+                addObject(new Enemy(path, level), path.get(0).x -pathSize,path.get(0).y); 
+                enemyCount++;
+                spawnTimer.mark();
+            }
+            else if (enemyCount == numEnemies && spawnTimer.millisElapsed() > 5000){
+                level ++;
+                levelLabel.setValue("Level "+level);
+                enemyCount = 0;
+                numEnemies += 2;
+                waveTimer.mark();
 
+            }
         }
-    }
         mouse = Greenfoot.getMouseInfo();
         updateUI();
 
@@ -168,8 +190,8 @@ public class MainGame extends World
     } 
 
     private void checkPlayerHealth(){
-                if (player.health <=0){
-            title.setBackground(title.endScreen);
+        if (player.health <=0){
+//            title.setBackground(title.endScreen);
             Greenfoot.setWorld(title);
         }
         else{
@@ -177,7 +199,7 @@ public class MainGame extends World
         }
 
     }
-    
+
     private void updateUI(){
         moneyLabel.setValue("$"+moneyAmount);
     }
@@ -199,40 +221,43 @@ public class MainGame extends World
 
     private void spawnTower(){
         if (mouse != null){
-           // mX = mouse.getX();
-           // mY = mouse.getY();
+            // mX = mouse.getX();
+            // mY = mouse.getY();
             //handle the tower selection
             //     UIButton buttonActive = mouse.getActor();
             //     buttonActive = 
 
-            int activeIndex = 0;
-            
-           // if (mouse.getX()>=getWidth()-menuBackground.getImage().getWidth()){
+            // if (mouse.getX()>=getWidth()-menuBackground.getImage().getWidth()){
             for (int i = 0; i < towers.size(); i++){
-               if (buttons.get(i).active){
-                  activeIndex = i; 
-               }
+                if ( Greenfoot.isKeyDown(""+(i+1))){//does not work!
+                    activeIndex = i; 
+                }
+                else{
+                    if (buttons.get(i).active){
+                        activeIndex = i;
+                    }
+                }
             }
-                tower = towers.get(activeIndex).clone();
-           // }
+            tower = towers.get(activeIndex).clone();
+            // }
             cursor.update(tower, mouse, mouseTimer);
-                //mouseTimer.mark();
-         //       if (mouse.getButton() == 1){
+            //mouseTimer.mark();
+            //       if (mouse.getButton() == 1){
 
-           //         if ((test != null)&&cursor.canSpawn){//handles if nothing is highlighted
-             //           moneyAmount -= test.cost;
-               //         addObject(test,(int) mX,mY);
-                      //  mouseTimer.mark();
-                        
-                   // }
+            //         if ((test != null)&&cursor.canSpawn){//handles if nothing is highlighted
+            //           moneyAmount -= test.cost;
+            //         addObject(test,(int) mX,mY);
+            //  mouseTimer.mark();
 
-              //  }
-               // else if (mouse.getButton()>1){
-                    //test = new BlastTower();
-                    //raze 
-                    //tower = (Tower)mouse.getActor(); 
-               // }
-            
+            // }
+
+            //  }
+            // else if (mouse.getButton()>1){
+            //test = new BlastTower();
+            //raze 
+            //tower = (Tower)mouse.getActor(); 
+            // }
+
         }
     }
 

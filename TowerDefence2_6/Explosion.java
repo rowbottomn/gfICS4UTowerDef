@@ -27,14 +27,19 @@ public class Explosion extends Actor
         else if (size > 40){
             sound = new GreenfootSound("\\sounds\\explosion_medium.mp3");
         }
-        else if (size > 20){
+        else if (size > 10){
             sound = new GreenfootSound("\\sounds\\explosion_small.mp3");
         }
         else {
             sound = new GreenfootSound("\\sounds\\little_pop.mp3");
         }
+        int volume = 30+size/2;
+        if (volume>90){
+            volume = 90;
+        }
+        sound.setVolume(volume);
         sound.play();
-      
+        
         world = a.getWorld();
         timer = new SimpleTimer();
         

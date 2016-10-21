@@ -9,7 +9,7 @@ import java.util.*;
 public abstract class AbstEnemy extends Actor
 {
       //enemy has
-      MainGame world;//world reference
+      World world;//world reference
       HealthBar healthbar;
       protected int x, y, angle;//location
       protected ArrayList <Bullet> bullets;
@@ -24,7 +24,7 @@ public abstract class AbstEnemy extends Actor
 
     public void act(){
         if (world == null){
-        world = (MainGame)getWorld();}
+        world = getWorld();}
         x = getX();
         y= getY();
 

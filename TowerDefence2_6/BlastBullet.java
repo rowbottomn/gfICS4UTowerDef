@@ -12,11 +12,10 @@ public class BlastBullet extends Bullet
      * Act - do whatever the BlastBullet wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-   
+    
     public BlastBullet(int a, int b, int c, int d){
         super(a, b, c, d);
-        sound = new GreenfootSound("\\sounds\\turret_blast1.wav");
-        this.sound.play();
+
         move(40);
     }
     

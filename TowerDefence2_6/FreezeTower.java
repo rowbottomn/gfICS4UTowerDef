@@ -26,7 +26,7 @@ public class FreezeTower extends AimingTower
 
     public void act(){
         if (tempWorld == null){
-            tempWorld = (MainGame)getWorld();
+            tempWorld = getWorld();
         }
         if (img == null){
             setImage();
@@ -34,11 +34,13 @@ public class FreezeTower extends AimingTower
         if (active){
             if (ranger == null){
                 ranger = new FreezeAttack((int)range, color);
+                sound.setVolume(65);
                 sound.play();
+                
                 ranger.setImage();
                 getWorld().addObject(ranger,this.getX(), this.getY()); 
             }
-                double transparency = (double)(20+80*(fireTimer.millisElapsed()/fireRate));
+                double transparency = (double)(15+70*(fireTimer.millisElapsed()/fireRate));
                 ranger.setImage(transparency);            
         }
         else{

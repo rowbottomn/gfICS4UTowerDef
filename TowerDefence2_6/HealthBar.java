@@ -1,6 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.awt.Color;
-
+import java.io.*;
 /**
  * Write a description of class HealthBar here.
  * 
@@ -35,9 +35,16 @@ public class HealthBar extends Actor
         int health = owner.health;
       setLocation(owner.x, owner.y-size);
         //update the image
-      if (health == maxHealth){return;}
-      
-      color = new Color(230*(1 - health/maxHealth), 230 *health/maxHealth, 0);
+      if (health == maxHealth|| health <= 0){return;}
+      int red = 0, green = 0;
+      try{
+          red = (int)(120+134*(1. - ((double)health/(double)maxHealth)));
+          green = (int)( 254 *((double)health/(double)maxHealth));
+      color = new Color(red,green, 0);
+    }
+    catch(Exception e){
+       System.out.println(""+red+" , "+green);
+    }
       temp.setColor(color); 
       temp.fill();
       temp.scale(1+50*health/maxHealth, 8);

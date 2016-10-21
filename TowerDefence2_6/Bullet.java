@@ -20,15 +20,13 @@ public class Bullet extends Actor
     int range;//coming from the tower via constructor
     int distTravelled;//
     //static GreenfootSound sound = new GreenfootSound("\\sounds\\little_pop.mp3");
-     GreenfootSound sound;
+
     public Bullet(int a, int d, int r, int s){
         angle = a;
         damage = d;
         range = r;
         speed = s;
         distTravelled = 0;
-        sound = new GreenfootSound("little_pop.wav");
-        this.sound.play();
         turn(angle);
         move(20);//advance the bullet out of the turret
     }

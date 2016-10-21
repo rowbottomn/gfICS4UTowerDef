@@ -12,13 +12,11 @@ public class FlameBullet extends Bullet
      * Act - do whatever the FlameBullet wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    GreenfootSound sound;
+    
     double bulletWidth;
     boolean skip = true; 
     public FlameBullet(int a, int b, int c, int d, double width){
         super(a, b, c, d);
-        sound = new GreenfootSound("\\sounds\\flame_thrower2.wav");
-        this.sound.play();
         bulletWidth = width;
         move(speed);
     }

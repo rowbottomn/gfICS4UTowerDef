@@ -113,6 +113,7 @@ public class UICursor extends UIMenuBackground
         money = (Money)getOneIntersectingObject(Money.class);
         if (money ==null){return;}
         tempWorld.moneyAmount += money.value;
+        tempWorld.score += money.value;
         tempWorld.removeObject(money);
     }
 
@@ -127,6 +128,7 @@ public class UICursor extends UIMenuBackground
     protected void checkRaze(){
         if (tower ==null){return;}
         tempWorld.addObject(new Explosion(this), getX(), getY());
+        tempWorld.moneyAmount -= tower.cost/2;
         tower.remove();
         //tempWorld.moneyAmount += tower.cost/2;
         //tempWorld.removeObject(tower.ranger);

@@ -13,8 +13,9 @@ public class AimingTower extends Tower
     int firingAngle;
     Color color;
     Range ranger; 
-    MainGame tempWorld;
+    World tempWorld;
     GreenfootImage img;
+    GreenfootSound sound;
     /**
      * Act - do whatever the AimingTower wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -28,8 +29,10 @@ public class AimingTower extends Tower
         bulletSpeed = 20;
         damage = 10;
         numBullet = 1;
-       cost = 50;
+        cost = 50;
         color = new Color(0,180,0);//for ranger
+        sound = new GreenfootSound("little_pop.wav");
+        sound.setVolume(75);
     }
 
     public AimingTower(int _range){
@@ -42,8 +45,8 @@ public class AimingTower extends Tower
     public void act() 
     {
         if (tempWorld ==null){
-            tempWorld = (MainGame)getWorld();
 
+            tempWorld = getWorld();
         }
         if (img == null){
             setImage();
@@ -71,20 +74,21 @@ public class AimingTower extends Tower
     }    
 
     protected void setImage(){
-            if (img == null){
+        if (img == null){
             img = new GreenfootImage("\\images\\turret_green.png");}
-            //img.setColor(new Color(60,60,60));
-            //img.fillOval(0,0,turretSize,turretSize);
-            img.setColor(this.color);
-            
-            img.fillOval(-2,-1,turretSize,turretSize);
-            
-            img.scale(turretSize-6,turretSize-6);
-            setImage(img);        
+        //img.setColor(new Color(60,60,60));
+        //img.fillOval(0,0,turretSize,turretSize);
+        img.setColor(this.color);
+
+        img.fillOval(-2,-1,turretSize,turretSize);
+
+        img.scale(turretSize-6,turretSize-6);
+        setImage(img);        
     }
-  
-    
+
     protected void fire(int angle){
+        this.sound.play();
+
         tempWorld.addObject(new Bullet(angle, damage, (int)range, bulletSpeed), getX(), getY());
         fireTimer.mark();//resets timer
     }
@@ -111,8 +115,6 @@ public class AimingTower extends Tower
                 firingAngle = this.getRotation();
             }
         }
-        
-        
 
     }
 
@@ -125,27 +127,27 @@ public class AimingTower extends Tower
 
         //}       
 
-        
     }
-    
+
     protected AimingTower clone(){
-       AimingTower clone = new AimingTower(); 
-       
-       return clone; 
+        AimingTower clone = new AimingTower(); 
+
+        return clone; 
     }
-    
+
     protected void upgrade(){
         range *= 1.2;
         cost *= 1.8;
         tempWorld.removeObject(ranger);
         ranger= null;
     }
-    
+
     void remove(){
-        tempWorld.moneyAmount += cost/2;
+      
+      //  tempWorld.moneyAmount += cost/2;
         tempWorld.removeObject(ranger);
         tempWorld.removeObject(this);
-        
+
     }
 
 }
