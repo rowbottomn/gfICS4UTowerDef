@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.params=tower
+comment0.target=UIBaseTower(AimingTower)
+comment0.text=\r\n\ Act\ -\ do\ whatever\ the\ UIBaseTower\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment1.params=tower
+comment1.target=UIBaseTower(BlastTower)
+comment2.params=tower
+comment2.target=UIBaseTower(FlameTower)
+comment3.params=tower
+comment3.target=UIBaseTower(FreezeTower)
+comment4.params=
+comment4.target=void\ act()
+numComments=5

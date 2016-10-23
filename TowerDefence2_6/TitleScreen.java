@@ -125,6 +125,10 @@ public class TitleScreen extends World
             Greenfoot.setWorld(main);
         }
     }
+    
+    public void stopped(){
+        soundTrack.stop();
+    }
 
     public void titles(){
         //Set the title

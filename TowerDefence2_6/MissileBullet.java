@@ -1,5 +1,5 @@
 import greenfoot.*;
-
+import java.util.*;
 /**
  * Write a description of class MissileBullet here.
  * 
@@ -8,14 +8,15 @@ import greenfoot.*;
  */
 public class MissileBullet extends Bullet
 {
-
+    static ArrayList<Enemy> enemies;
     Enemy enemy;
     double bulletSpeed;
     public MissileBullet(int a, int d, int r, double s, Enemy e){
         super(a, d, r, (int)s);
-
+        enemies = new ArrayList<Enemy>();
         this.bulletSpeed = s;
         enemy = e;
+        enemies.add(enemy);
     }
 
     /**
@@ -30,12 +31,15 @@ public class MissileBullet extends Bullet
         if (enemy!=null&&enemy.getWorld()!=null){
             int oldAngle = getRotation();
             turnTowards(enemy.getX(), enemy.getY());
-            setRotation(oldAngle+(int)((getRotation()-oldAngle)/4));
-            bulletSpeed*=1.1;
+            setRotation(oldAngle+(int)((getRotation()-oldAngle)/3));
+            bulletSpeed*=1.08;
         }
         else{
+            enemy = enemies.get(0);//try to select another enemy in the list
+               
+            
             if (getWorld()!=null){
-           
+             
                 getWorld().addObject(new Explosion(this), getX(),getY());
                 getWorld().removeObject(this);
             }

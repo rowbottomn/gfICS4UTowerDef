@@ -14,8 +14,9 @@ public class MainGame extends World
     FileReader fileReader;
     TitleScreen title;
     ArrayList <Waypoint> path;
+    ArrayList <Enemy> enemies;
     int level = 1;
-    int moneyAmount = 110;
+    int moneyAmount = 11000;
     int hiScore = 0;
     int score = 0;
     int pathSize = 60;
@@ -71,7 +72,7 @@ public class MainGame extends World
         addObject(levelLabel,200,50);
         moneyLabel = new Label("$ "+moneyAmount,40);
         addObject(moneyLabel,950,50);
-
+        enemies = new ArrayLsit<Enemy>();
         //constructor calls
         menuBackground = new UIMenuBackground();
         //button1 = new UIButton();
@@ -135,7 +136,7 @@ public class MainGame extends World
     }
 
     public void act(){
-        int waveDelay = 6;
+        int waveDelay = 8;
         if (Greenfoot.isKeyDown("q")){health = 0;}
         if (Greenfoot.isKeyDown("e")){ebool = true;}
         if (Greenfoot.isKeyDown("l")){lbool = true;}
@@ -207,6 +208,7 @@ public class MainGame extends World
     private void spawnEnemy(){
         if (enemyCount < numEnemies && spawnTimer.millisElapsed() > 3000./(1.+0.03*level)){
             addObject(new Enemy(path, level), path.get(0).x -pathSize,path.get(0).y); 
+            
             enemyCount++;
             spawnTimer.mark();
         }

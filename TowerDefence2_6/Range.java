@@ -58,4 +58,10 @@ public class Range extends Actor
     public Enemy target(){
         return (Enemy) getOneIntersectingObject(Enemy.class);
     }
+    
+    public ArrayList <Enemy> Enemy target (){
+        //send back a target that does not match the existing target;
+        return new ArrayList <Enemy>((Enemy) getIntersectingObjects(Enemy.class));
+        
+    }
 }
