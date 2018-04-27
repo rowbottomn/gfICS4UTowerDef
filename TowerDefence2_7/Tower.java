@@ -1,5 +1,5 @@
 import greenfoot.*;
-import java.awt.*;
+//import java.awt.*;
 /**
  * Basic tower to use a superclass
  * 
@@ -58,7 +58,7 @@ public class Tower extends Actor
         damage = 15;
         numBullet = 1;
         
-        color = new Color(255);
+        color = new Color(255,255,255);
        // bullet = new Bullet();
         fireTimer = new SimpleTimer();
         fireTimer.mark();

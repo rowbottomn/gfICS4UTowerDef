@@ -1,13 +1,15 @@
 #BlueJ class context
-comment0.params=
-comment0.target=FlameTower()
+comment0.target=FlameTower
+comment0.text=\n\ Write\ a\ description\ of\ class\ FlameTower\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=
-comment1.target=void\ act()
-comment1.text=\ \ \ \ protected\ void\ fire(int\ angle){\r\n\ \ \ \ getWorld().addObject(new\ FlameBullet(angle+(int)(Math.random()*spread-spread/2),\ damage,\ (int)range,\ bulletSpeed),\ x,\ y);\r\n\ \ \ \ getWorld().addObject(new\ FlameBullet(angle+(int)(Math.random()*spread-spread/2),\ damage,\ (int)range,\ bulletSpeed),\ x,\ y);\r\n\ \ \ \ getWorld().addObject(new\ FlameBullet(angle+(int)(Math.random()*spread-spread/2),\ damage,\ (int)range,\ bulletSpeed),\ x,\ y);\r\n\ \ \ \ fireTimer.mark();//resets\ timer\r\n}
+comment1.target=FlameTower()
 comment2.params=
-comment2.target=FlameTower\ clone()
-comment3.params=angle
-comment3.target=void\ fire(int)
-comment4.params=
-comment4.target=void\ upgrade()
-numComments=5
+comment2.target=void\ act()
+comment2.text=\ \ \ \ protected\ void\ fire(int\ angle){\n\ \ \ \ getWorld().addObject(new\ FlameBullet(angle+(int)(Math.random()*spread-spread/2),\ damage,\ (int)range,\ bulletSpeed),\ x,\ y);\n\ \ \ \ getWorld().addObject(new\ FlameBullet(angle+(int)(Math.random()*spread-spread/2),\ damage,\ (int)range,\ bulletSpeed),\ x,\ y);\n\ \ \ \ getWorld().addObject(new\ FlameBullet(angle+(int)(Math.random()*spread-spread/2),\ damage,\ (int)range,\ bulletSpeed),\ x,\ y);\n\ \ \ \ fireTimer.mark();//resets\ timer\n}
+comment3.params=
+comment3.target=FlameTower\ clone()
+comment4.params=angle
+comment4.target=void\ fire(int)
+comment5.params=
+comment5.target=void\ upgrade()
+numComments=6

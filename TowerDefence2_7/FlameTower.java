@@ -1,5 +1,5 @@
 import greenfoot.*;
-import java.awt.*;
+//import java.awt.*;
 
 /**
  * Write a description of class FlameTower here.

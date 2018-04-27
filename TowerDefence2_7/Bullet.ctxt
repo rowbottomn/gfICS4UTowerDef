@@ -1,12 +1,14 @@
 #BlueJ class context
-comment0.params=a\ d\ r\ s
-comment0.target=Bullet(int,\ int,\ int,\ int)
-comment1.params=
-comment1.target=Bullet()
-comment2.params=a
-comment2.target=Bullet(int)
-comment3.params=
-comment3.target=void\ act()
+comment0.target=Bullet
+comment0.text=\n\ Write\ a\ description\ of\ class\ Bullet\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=a\ d\ r\ s
+comment1.target=Bullet(int,\ int,\ int,\ int)
+comment2.params=
+comment2.target=Bullet()
+comment3.params=a
+comment3.target=Bullet(int)
 comment4.params=
-comment4.target=Bullet\ clone()
-numComments=5
+comment4.target=void\ act()
+comment5.params=
+comment5.target=Bullet\ clone()
+numComments=6

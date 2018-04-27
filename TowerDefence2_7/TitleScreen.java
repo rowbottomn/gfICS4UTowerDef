@@ -1,5 +1,5 @@
 import greenfoot.*;
-import java.awt.*;
+//import java.awt.*;
 import java.util.*;
 
 /**

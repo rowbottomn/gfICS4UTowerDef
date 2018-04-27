@@ -1,14 +1,16 @@
 #BlueJ class context
-comment0.params=
-comment0.target=MissileTower()
+comment0.target=MissileTower
+comment0.text=\n\ Write\ a\ description\ of\ class\ MissileTower\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=
-comment1.target=void\ act()
+comment1.target=MissileTower()
 comment2.params=
-comment2.target=void\ fire()
+comment2.target=void\ act()
 comment3.params=
-comment3.target=MissileTower\ clone()
+comment3.target=void\ fire()
 comment4.params=
-comment4.target=void\ upgrade()
+comment4.target=MissileTower\ clone()
 comment5.params=
-comment5.target=void\ setImage()
-numComments=6
+comment5.target=void\ upgrade()
+comment6.params=
+comment6.target=void\ setImage()
+numComments=7

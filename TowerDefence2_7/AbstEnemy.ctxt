@@ -1,10 +1,12 @@
 #BlueJ class context
-comment0.params=
-comment0.target=void\ act()
+comment0.target=AbstEnemy
+comment0.text=\n\ Abstract\ Enemy\ Class\n\ @author\ Rowbottom\n\ @version\ 1.0\n
 comment1.params=
-comment1.target=void\ move()
+comment1.target=void\ act()
 comment2.params=
-comment2.target=boolean\ checkHit()
+comment2.target=void\ move()
 comment3.params=
-comment3.target=void\ takeDamage()
-numComments=4
+comment3.target=boolean\ checkHit()
+comment4.params=
+comment4.target=void\ takeDamage()
+numComments=5

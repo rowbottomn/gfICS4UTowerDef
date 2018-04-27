@@ -1,5 +1,5 @@
 import greenfoot.*;
-import java.awt.*;
+//import java.awt.*;
 
 /**
  * Write a description of class UICursor here.
@@ -30,7 +30,7 @@ public class UICursor extends UIMenuBackground
         tempWorld = m;
         size = s;
         img = getImage();
-        setImage(new Color(200));
+        setImage(new Color(200, 0 ,0));
         img.scale(size,size);
         pickup.setVolume(75);
     }

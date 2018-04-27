@@ -1,7 +1,9 @@
 #BlueJ class context
-comment0.params=a\ d\ r\ s\ e
-comment0.target=MissileBullet(int,\ int,\ int,\ double,\ Enemy)
-comment1.params=
-comment1.target=void\ act()
-comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ MissileBullet\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
-numComments=2
+comment0.target=MissileBullet
+comment0.text=\n\ Write\ a\ description\ of\ class\ MissileBullet\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=a\ d\ r\ s\ e
+comment1.target=MissileBullet(int,\ int,\ int,\ double,\ Enemy)
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\n\ Act\ -\ do\ whatever\ the\ MissileBullet\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
+numComments=3

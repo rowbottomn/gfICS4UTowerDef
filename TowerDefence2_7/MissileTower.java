@@ -1,5 +1,5 @@
 import greenfoot.*;
-import java.awt.*;
+//mport java.awt.*;
 /**
  * Write a description of class MissileTower here.
  * 

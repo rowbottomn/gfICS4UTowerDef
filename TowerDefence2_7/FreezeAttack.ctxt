@@ -1,5 +1,7 @@
 #BlueJ class context
-comment0.params=_size\ c
-comment0.target=FreezeAttack(int,\ java.awt.Color)
-comment0.text=\r\n\ Act\ -\ do\ whatever\ the\ FreezeAttack\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
-numComments=1
+comment0.target=FreezeAttack
+comment0.text=\n\ Write\ a\ description\ of\ class\ FreezeAttack\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=_size\ c
+comment1.target=FreezeAttack(int,\ greenfoot.Color)
+comment1.text=\n\ Act\ -\ do\ whatever\ the\ FreezeAttack\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
+numComments=2
