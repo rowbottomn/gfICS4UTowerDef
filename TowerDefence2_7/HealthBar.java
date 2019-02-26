@@ -15,7 +15,7 @@ public class HealthBar extends Actor
     protected Enemy owner;
     protected int maxHealth;
     protected int size;
-    protected int health
+    protected int health;
     protected int red = 0, green = 0;
     
     public HealthBar(Enemy o, int maxHeath){
